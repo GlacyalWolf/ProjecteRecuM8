@@ -6,6 +6,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 
 public class RecyclerViewModel extends ViewModel {
-    
+
 
 }
