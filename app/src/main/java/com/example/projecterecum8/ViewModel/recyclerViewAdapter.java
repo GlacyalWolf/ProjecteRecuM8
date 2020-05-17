@@ -44,7 +44,7 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
         return listc.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nombre,email;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

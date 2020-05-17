@@ -2,6 +2,9 @@ package com.example.projecterecum8.Model;
 
 import android.content.Context;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Contacto {
     private String nombre, apellido, email, urlfotos;
 
@@ -12,6 +15,18 @@ public class Contacto {
         this.urlfotos = urlfotos;
     }
     public Contacto(){
+
+    }
+
+    public Contacto(JSONObject jsonObject){
+        try {
+            nombre = jsonObject.getString("Nombre");
+            apellido = jsonObject.getString("Apellido");
+            email = jsonObject.getString("email");
+            urlfotos = jsonObject.getString("urlfoto");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
