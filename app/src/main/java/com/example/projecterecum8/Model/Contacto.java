@@ -1,64 +1,75 @@
 package com.example.projecterecum8.Model;
 
-import android.content.Context;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Contacto {
-    private String nombre, apellido, email, urlfotos;
+    private String Nombre, Apellido, email, urlfoto;
 
-    public Contacto(String nombre, String apellido, String email, String urlfotos) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Contacto(String nombre, String apellido, String email, String urlfoto) {
+        this.Nombre = nombre;
+        this.Apellido = apellido;
         this.email = email;
-        this.urlfotos = urlfotos;
+        this.urlfoto = urlfoto;
     }
     public Contacto(){
 
     }
 
+    public Contacto(String nombre, String apellido, String email) {
+        this.Nombre = nombre;
+        this.Apellido = apellido;
+        this.email = email;
+        this.urlfoto = "";
+    }
+
     public Contacto(JSONObject jsonObject){
         try {
-            nombre = jsonObject.getString("Nombre");
-            apellido = jsonObject.getString("Apellido");
+            Nombre = jsonObject.getString("Nombre");
+            Apellido = jsonObject.getString("Apellido");
             email = jsonObject.getString("email");
-            urlfotos = jsonObject.getString("urlfoto");
+            urlfoto = jsonObject.getString("urlfoto");
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
 
+    public boolean checkInpout() {
+        if(Nombre.equalsIgnoreCase("") || Apellido.equalsIgnoreCase("") || email.equalsIgnoreCase("") ) {
+            return false;
+        }else return false;
+    }
+
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public String getApellido() {
-        return apellido;
+        return Apellido;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getUrlfotos() {
-        return urlfotos;
+    public String getUrlfoto() {
+        return urlfoto;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.Nombre = nombre;
     }
 
     public void setApellido(String apellido) {
-        this.apellido = apellido;
+        this.Apellido = apellido;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setUrlfotos(String urlfotos) {
-        this.urlfotos = urlfotos;
+    public void setUrlfoto(String urlfoto) {
+        this.urlfoto = urlfoto;
     }
 }

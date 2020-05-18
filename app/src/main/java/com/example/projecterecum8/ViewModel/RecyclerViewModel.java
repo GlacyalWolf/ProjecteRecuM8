@@ -22,6 +22,8 @@ public class RecyclerViewModel extends ViewModel {
     public RecyclerViewModel() {
         repo = Repository.getRepository();
         listacont = new ArrayList<>();
+        livedatalistacont= new MutableLiveData<ArrayList<Contacto>>();
+
     }
 
    public void getContactosDepartamento(String departamento) {
@@ -41,5 +43,8 @@ public class RecyclerViewModel extends ViewModel {
 
     public ArrayList<Contacto> getListacont() {
         return listacont;
+    }
+    public Contacto getContactoPosicion(int position){
+        return listacont.get(position);
     }
 }

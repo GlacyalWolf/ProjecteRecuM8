@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.projecterecum8.Model.Contacto;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +22,11 @@ import java.util.ArrayList;
 public class Repository {
     private static Repository srepository;
     private Context context;
+    private String departamentoactual;
+
+    public String getDepartamentoactual() {
+        return departamentoactual;
+    }
 
     private MutableLiveData<ArrayList<Contacto>> listacontactosdept;
 
@@ -41,6 +47,7 @@ public class Repository {
         //thread de consulta
         myThread thread = new myThread();
         thread.execute("https://jdaapa-988c6.firebaseio.com/JDA/"+departamento+".json");
+        departamentoactual = departamento;
 
 
 
@@ -48,6 +55,16 @@ public class Repository {
     public LiveData<ArrayList<Contacto>> getLiveContactos(){
         return listacontactosdept;
     }
+
+    public void addNewCOntact(Contacto contacto) {
+
+
+        ArrayList<Contacto> arraycontactos = listacontactosdept.getValue();
+        arraycontactos.add(contacto);
+        FirebaseDatabase.getInstance().getReference().child("JDA").child(departamentoactual).setValue(arraycontactos);
+
+    }
+
     public class myThread extends AsyncTask<String,Void,String>{
 
         @Override

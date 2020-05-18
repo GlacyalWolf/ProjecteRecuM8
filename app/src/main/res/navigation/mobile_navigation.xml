@@ -46,6 +46,16 @@
         android:name="com.example.projecterecum8.View.Recycler"
         android:label="Recycler"
         tools:layout="@layout/fragment_recycler" />
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.example.projecterecum8.View.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/fragment_add_contacto"
+        android:name="com.example.projecterecum8.View.AddContactoFragment"
+        android:label="fragment_addcontact"
+        tools:layout="@layout/fragment_add_contacto" />
 
 
 

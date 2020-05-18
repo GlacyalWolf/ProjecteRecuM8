@@ -21,5 +21,9 @@
             android:id="@+id/nav_recycler"
             android:title="RecyclerView" />
 
+        <item
+            android:id="@+id/fragment_add_contacto"
+            android:title="Add Contacto" />
+
     </group>
 </menu>
