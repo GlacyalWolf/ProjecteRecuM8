@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.projecterecum8.Model.Contacto;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
@@ -46,7 +47,7 @@ public class Repository {
     public void getContactosDepartamento(String departamento) {
         //thread de consulta
         myThread thread = new myThread();
-        thread.execute("https://jdaapa-988c6.firebaseio.com/JDA/"+departamento+".json");
+        thread.execute("https://projecterecum8.firebaseio.com/JDA/"+departamento+".json");
         departamentoactual = departamento;
 
 
@@ -61,7 +62,9 @@ public class Repository {
 
         ArrayList<Contacto> arraycontactos = listacontactosdept.getValue();
         arraycontactos.add(contacto);
-        FirebaseDatabase.getInstance().getReference().child("JDA").child(departamentoactual).setValue(arraycontactos);
+        FirebaseDatabase.getInstance().getReference().child("JDA").child(departamentoactual).setValue(listacontactosdept);
+
+
 
     }
 

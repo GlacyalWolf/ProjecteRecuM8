@@ -46,16 +46,9 @@ public class AddContactoFragment extends Fragment {
         fotoperfil = root.findViewById(R.id.fotoadd);
 
 
+
+
         save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.nav_home);
-
-
-            }
-        });
-
-        botonfoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Contacto contacto = new Contacto(nombre.getText().toString(),apellido.getText().toString(),
@@ -65,9 +58,11 @@ public class AddContactoFragment extends Fragment {
 
                     addContactViewModel.addNewContact(contacto);
                 }
+                Navigation.findNavController(v).navigate(R.id.nav_home);
 
 
             }
+
         });
 
 

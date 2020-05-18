@@ -38,7 +38,7 @@ public class Contacto {
     public boolean checkInpout() {
         if(Nombre.equalsIgnoreCase("") || Apellido.equalsIgnoreCase("") || email.equalsIgnoreCase("") ) {
             return false;
-        }else return false;
+        }else return true;
     }
 
     public String getNombre() {
