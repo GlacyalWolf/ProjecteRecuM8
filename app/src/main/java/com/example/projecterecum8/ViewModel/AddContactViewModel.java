@@ -1,5 +1,7 @@
 package com.example.projecterecum8.ViewModel;
 
+import android.net.Uri;
+
 import androidx.lifecycle.ViewModel;
 
 import com.example.projecterecum8.Data.Repository;
@@ -13,5 +15,9 @@ public class AddContactViewModel extends ViewModel {
 
     public void addNewContact(Contacto contacto) {
         repository.addNewCOntact(contacto);
+    }
+
+    public void setURI(Uri uri) {
+        repository.uploadURIfoto(uri);
     }
 }

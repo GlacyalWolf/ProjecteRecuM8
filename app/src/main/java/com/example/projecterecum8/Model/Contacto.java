@@ -25,8 +25,8 @@ public class Contacto {
 
     public Contacto(JSONObject jsonObject){
         try {
-            Nombre = jsonObject.getString("Nombre");
-            Apellido = jsonObject.getString("Apellido");
+            Nombre = jsonObject.getString("nombre");
+            Apellido = jsonObject.getString("apellido");
             email = jsonObject.getString("email");
             urlfoto = jsonObject.getString("urlfoto");
         } catch (JSONException e) {
